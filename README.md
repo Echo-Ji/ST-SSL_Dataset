@@ -1,6 +1,6 @@
-# Datasets used in HeST
+# Datasets used in ST-SSL
 
-We provide several datasets used in the <u>He</u>terogeneity-aware <u>S</u>patial <u>T</u>emporal ([HeST](https://github.com/Echo-Ji/HeST)) framework, which leverages self-supervised learning for traffic flow prediction. 
+We provide several datasets used in the [ST-SSL](https://github.com/Echo-Ji/ST-SSL) framework, which leverages self-supervised learning for traffic flow prediction. 
 
 The datasets range from `{NYCBike1, NYCBike2, NYCTaxi, BJTaxi}`.
 
