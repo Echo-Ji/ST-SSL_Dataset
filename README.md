@@ -6,11 +6,11 @@ The datasets range from `{NYCBike1, NYCBike2, NYCTaxi, BJTaxi}`.
 
 Please use Git Large File Storage ([LFS](https://git-lfs.github.com/)) to pull this repo to your computer.
 
-You can also download the dataset at [Beihang Cloud Drive](https://bhpan.buaa.edu.cn:443/link/8FD8DF90A642DB30FA98538EFEDF61D4).
+You can also download the dataset at [Beihang Cloud Drive](https://bhpan.buaa.edu.cn/link/AAF30DD8F4A2D942F7A4992959335C2780).
 
 ## Dataset Format
 
-A dataset is composed of 4 files, namely `train.npz`, `val.npz`, `test.npz`, and `adj_mx.npz`.
+Each dataset is composed of 4 files, namely `train.npz`, `val.npz`, `test.npz`, and `adj_mx.npz`.
 
 ```
 |----BJTaxi\
