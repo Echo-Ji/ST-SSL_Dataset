@@ -13,24 +13,25 @@ You can also download the dataset at [Beihang Cloud Drive](https://bhpan.buaa.ed
 Each dataset is composed of 4 files, namely `train.npz`, `val.npz`, `test.npz`, and `adj_mx.npz`.
 
 ```
-|----BJTaxi\
-|    |----train.npz
-|    |----adj_mx.npz
-|    |----test.npz
-|    |----val.npz
+|----NYCBike1\
+|    |----train.npz    # training data
+|    |----adj_mx.npz   # predefined graph structure
+|    |----test.npz     # test data
+|    |----val.npz      # validation data
 ```
 
 Train/Val/Test data is composed of 4 `numpy.ndarray` objects:
 
-* `x`: a 4D tensor of shape (#timeslots, #lookback_window, #nodes, #flow_types)
-* `y`: a 4D tensor of shape (#timeslots, #predict_horizon, #nodes, #flow_types). `x` and `y` are processed as a `sliding window view`.
+The `train/val/test` data is composed of 4 `numpy.ndarray` objects:
 
-* `x_offset`: a tensor indicating offsets of `x`'s lookback window. Note that the lookback window of data `x` is not consistent in time.
-* `y_offset`: a tensor indicating offsets of `y`'s predict horizon.
+* `X`: input data. It is a 4D tensor of shape `(#samples, #lookback_window, #nodes, #flow_types)`, where `#` denotes the number sign. 
+* `Y`: data to be predicted. It is a 4D tensor of shape `(#samples, #predict_horizon, #nodes, #flow_types)`. Note that `X` and `Y` are paired in the sample dimension. For instance, `(X_i, Y_i)` is the `i`-the data sample with `i` indexing the sample dimension.
+* `X_offset`: a list indicating offsets of `X`'s lookback window relative to the current time with offset `0`.  
+* `Y_offset`: a list indicating offsets of `Y`'s prediction horizon relative to the current time with offset `0`.
 
-For all datasets, previous 2-hour flows as well as previous 3-day flows around the predicted time are used to predict the flows for the next time step.
+For all datasets, previous 2-hour flows as well as previous 3-day flows around the predicted time are used to forecast flows for the next time step.
 
-`adj_mx.npz` is a symmetric adjacency matrix, taking the value of 0 or 1.
+`adj_mx.npz` is the graph adjacency matrix that indicates the spatial relation of every two regions/nodes in the studied area. 
 
 ## Dataset Usage
 
